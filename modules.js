@@ -65,9 +65,7 @@ const initialState = { stack: [], inputState: 'replace' };
 const switchNegative = (x) => {
   if (x.startsWith('-')) {
     return x.slice(1);
-  } else {
-    return `-${x}`;
-  }
+  } return `-${x}`;
 };
 
 // inputState = append | replace | push
@@ -76,7 +74,7 @@ export const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case TOGGLE_NEGATIVE:
       return {
-        stack: state.stack.map((x, i) => (payload === i ? switchNegative(x) : x),
+        stack: state.stack.map((x, i) => (payload === i ? switchNegative(x) : x)),
         inputState: state.inputState,
       };
     case SWAP:
